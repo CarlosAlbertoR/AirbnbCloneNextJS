@@ -72,7 +72,7 @@ const RegisterModal = () => {
       <Button
         label="Continue with Google"
         icon={FcGoogle}
-        onClick={() => {}}
+        onClick={() => signIn("google")}
         outline
       />
       <Button
