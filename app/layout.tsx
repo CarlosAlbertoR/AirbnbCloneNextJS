@@ -3,12 +3,13 @@ import { lazy } from "react";
 
 import Navbar from "./components/navbar/Navbar";
 import ClientOnly from "./components/ClientOnly";
-import "./globals.css";
 import getCurrentUser from "./actions/getCurrentUser";
+import "./globals.css";
 
 const font = Nunito({ subsets: ["latin"] });
 const LoginModal = lazy(() => import("./components/modals/LoginModal"));
 const RegisterModal = lazy(() => import("./components/modals/RegisterModal"));
+const RentModal = lazy(() => import("./components/modals/RentModal"));
 const ToasterProvider = lazy(() => import("./providers/ToasterProvider"));
 
 export const metadata = {
@@ -30,6 +31,7 @@ export default async function RootLayout({
           <ToasterProvider />
           <LoginModal />
           <RegisterModal />
+          <RentModal />
           <Navbar currentUser={currentUser} />
         </ClientOnly>
         {children}
