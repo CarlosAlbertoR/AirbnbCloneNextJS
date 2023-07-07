@@ -1,4 +1,5 @@
 import prisma from "@/app/libs/prismadb";
+import { safeListing } from "../types";
 
 export default async function getListings() {
   try {
@@ -6,7 +7,7 @@ export default async function getListings() {
       orderBy: { createdAt: "desc" },
     });
 
-    const safeListings = listings.map((listing) => ({
+    const safeListings: Array<safeListing> = listings.map((listing) => ({
       ...listing,
       createdAt: listing.createdAt.toISOString(),
     }));
